@@ -1,10 +1,16 @@
-name: aws_rds_baseline
-title: InSpec Profile
-maintainer: The Authors
-copyright: The Authors
-copyright_email: you@example.com
+name: aws-rds-baseline
+title: Validates AWS RDS Infrastucture Layer
+maintainer: MITRE InSpec Team
+copyright: The MITRE Corporation, 2019
+copyright_email: inspec@mitre.org
 license: Apache-2.0
-summary: An InSpec Compliance Profile
+summary: Validates AWS RDS Infrastucture Layer
 version: 0.1.0
 supports:
-  platform: os
+  platform: aws
+inspec_version: "~> 3.0"
+
+attributes:
+  - name: db_instance_identifier
+    type: string
+    default: 'rdsmysqlinspec'

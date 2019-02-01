@@ -19,17 +19,19 @@ class AwsRdsInstance < Inspec.resource(1)
               :option_group_name, :option_group_status
 
   def to_s
-    "RDS blah Instance #{@db_instance_identifier}"
+    "RDS Instance #{@db_instance_identifier}"
   end
 
   def subnets
     return nil unless exists?
+
     subnet_list = db_subnet_group.to_h[:subnets]
     SubnetFilter.new(subnet_list)
   end
 
   def vpc_security_groups
     return nil unless exists?
+
     vpc_security_group_list = db_instance.to_h[:vpc_security_groups]
     VPCSecurityGroupFilter.new(vpc_security_group_list)
   end
@@ -46,9 +48,9 @@ class AwsRdsInstance < Inspec.resource(1)
       raw_params: raw_params,
       allowed_params: [:db_instance_identifier],
       allowed_scalar_name: :db_instance_identifier,
-      allowed_scalar_type: String,
+      allowed_scalar_type: String
     )
-    if validated_params.empty? or !validated_params.key?(:db_instance_identifier)
+    if validated_params.empty? || !validated_params.key?(:db_instance_identifier)
       raise ArgumentError, 'You must provide an id for the aws_rds_instance.'
     end
 
@@ -116,11 +118,11 @@ class SubnetFilter
   filter.connect(self, :subnets)
 
   def to_s
-    "Subnets"
+    'Subnets'
   end
 
   attr_reader :subnets
-  def initialize(subnets=nil)
+  def initialize(subnets = nil)
     @subnets = subnets
   end
 end
@@ -135,11 +137,11 @@ class VPCSecurityGroupFilter
   filter.connect(self, :vpc_security_groups)
 
   def to_s
-    "VPC Security Groups"
+    'VPC Security Groups'
   end
 
   attr_reader :vpc_security_groups
-  def initialize(vpc_security_groups=nil)
+  def initialize(vpc_security_groups = nil)
     @vpc_security_groups = vpc_security_groups
   end
 end
