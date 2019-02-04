@@ -1,5 +1,5 @@
 
-# aws-rds-baseline
+# cis-aws-rds-infrastructure-baseline
 
 ALPHA WIP- AWS RDS infrastructure validation
 
