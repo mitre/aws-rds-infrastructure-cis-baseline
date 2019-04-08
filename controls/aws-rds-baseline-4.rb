@@ -38,4 +38,9 @@ control 'aws-rds-baseline-4' do
 
   aws rds modify-db-instance --db-instance-identifier <your_db_instance>
   --backup- retention-period <backup_retention_period>"
+  attribute('db_instance_identifier').each do | identifier|
+    describe aws_rds_instance("#{identifier}") do
+      its('backup_retention_period') { should cmp >= 7 }
+    end
+  end
 end

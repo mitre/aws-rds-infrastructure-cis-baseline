@@ -10,7 +10,7 @@ control 'aws-rds-baseline-5' do
   it by defining policies that determine which publishers and subscribers can
   communicate with the topic.'
   impact 0.3
-  tag "rationale": 'RDS events generaged through defined RDS event subscriptions
+  tag "rationale": 'RDS events generated through defined RDS event subscriptions
   needs to be sent out to administrators, in order to be acted upon.'
   tag "cis_rid": '4.2'
   tag "cis_level": 1
@@ -44,4 +44,10 @@ control 'aws-rds-baseline-5' do
   aws sns subscribe --topic-arn <sns_topic_arn> --protocol <protocol_for_sns> --
   notification-endpoint <sns_subscription_endpoints>
   "
-end
+  describe aws_rds_event_subscriptions do
+    its('event_subscription_arns') { should_not be_empty}
+  end
+  describe aws_rds_event_subscriptions do
+    its('source_types') { should_not be_empty}
+  end
+end 

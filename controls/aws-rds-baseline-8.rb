@@ -59,5 +59,33 @@ control 'aws-rds-baseline-8' do
 
   aws ec2 authorize-security-group-ingress --group-id <data_tier_security_group>
   -- protocol tcp --port <specific_port> --source-group <app_tier_security_group>'
+
   "
+
+  attribute('db_instance_identifier').each do | identifier|
+    rds_vpc_security_groups = aws_rds_instance("#{identifier}").vpc_security_groups.where(status: 'active').vpc_security_group_ids
+
+    publicly_accessible = aws_rds_instance("#{identifier}").publicly_accessible
+  
+    if publicly_accessible
+      rds_vpc_security_groups.each do |security_group|
+        describe aws_security_group(id: security_group) do
+          it { should allow_in(port: 3306, ipv4_range: '0.0.0.0/0') }
+        end
+        describe aws_security_group(id: security_group) do
+          it { should allow_in(port: 1433, ipv4_range: '0.0.0.0/0') }
+        end
+        describe aws_security_group(id: security_group) do
+          it { should allow_in(port: 1521, ipv4_range: '0.0.0.0/0') }
+        end
+        describe aws_security_group(id: security_group) do
+          it { should allow_in(port: 5432, ipv4_range: '0.0.0.0/0') }
+        end
+      end
+    else
+      describe aws_rds_instance("#{identifier}") do
+        its('publicly_accessible') { should_not be_true }
+      end
+    end
+  end 
 end

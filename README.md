@@ -3,14 +3,7 @@
 
 ALPHA WIP- AWS RDS infrastructure validation
 
-InSpec Profile to validate the secure configuration of vendor product-version-edition, against the [<DISA/CIS/vendor>](http://linktosite)'s **<CIS Benchmark|DISA STIG, etc.> version <x.y.z>**.
-
-    Note to be removed: Moving forward, maybe we should just base our profiles, 
-    etc. on the version of the benchmark, stig, etc. since that is how 
-    people will use it? I am not sure they care what our versions are 
-    plus they don't change a ton after the fact. Or, if we really feel 
-    the need to have our own versioning scheme maybe we can have 
-    something like <benchmark|stig version>_<semver>. 
+InSpec Profile to validate the secure configuration of cis-aws-rds-infrastructure-baseline, against CIS's Amazon Web Services Three-tier Web Architecture Benchmark V1.2.0
 
 ## Getting Started  
 It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __<transport_protocol>__.
@@ -58,13 +51,13 @@ $ export VARIABLE_NAME=value
 
 ## Running This Profile
 
-    inspec exec https://github.com/mitre/<project>/archive/master.tar.gz -t <transport-protocol>://<hostip> --user '<admin-account>' --password=<password> --reporter cli json:<filename>.json
+    inspec exec -t aws://https://github.com/mitre/cis-aws-rds-infrastructure-baseline/archive/master.tar.gz -t <transport-protocol>://<hostip> --user '<admin-account>' --password=<password> --reporter cli json:<filename>.json
 
 Runs this profile over __<transport_protocol>__ to the host at IP address __hostip__ as a privileged user account (i.e., an account with administrative privileges), reporting results to both the command line interface (cli) and to a machine-readable JSON file. 
 
     NOTE: Provide a usable example based on instructions above. 
     Example:
-    inspec exec https://github.com/mitre/stig-microsoft-iis-8.5-site-baseline/archive/master.tar.gz -t winrm://$winhostip --user 'Administrator --password=Pa55w0rd --reporter cli json:my-iis-site.json
+    inspec exec https://github.com/mitre/cis-aws-rds-infrastructure-baseline/archive/master.tar.gz -t winrm://$winhostip --user 'Administrator --password=Pa55w0rd --reporter cli json:my-iis-site.json
 
 ## Viewing the JSON Results
 
@@ -80,17 +73,13 @@ For other help, please send a message to [inspec@mitre.org](mailto:inspec@mitre.
 To contribute, please review the [contribution guidelines](https://github.com/mitre/docs-mitre-inspec/blob/master/CONTRIBUTING.md).
 
 ## Authors
-* author_1
-* author_2
+* Alicia Sturtevant
+* Rony Xavier
 
 ## Special Thanks 
-     NOTE: This is for people that have made significant contributions to development/testing of the profile
-* person_1
+* The MITRE InSpec Team
 * person_2
  
-## Additional References (OPTIONAL SECTION)
-* reference_1
-* reference_2
 
 ## License
 This is licensed under the Apache 2.0 license excepted as noted in [LICENSE.MD](https://github.com/mitre/project/blob/master/LICENSE.md). 

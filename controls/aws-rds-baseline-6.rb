@@ -9,7 +9,7 @@ control 'aws-rds-baseline-6' do
     * Failure
     * Failover
     * Low Storage
-    * Maintentance'
+    * Maintenance'
   impact 0.3
   tag "rationale": 'Event subscriptions are designed to provide incident
   notification of events which may affect the availability of a RDS database
@@ -36,22 +36,17 @@ control 'aws-rds-baseline-6' do
     <rds_events> -- source-ids <events_source_ids> --enabled
   "
 
-  db_instance_identifier = attribute('db_instance_identifier')
 
-  entries = aws_rds_event_subscriptions \
-            .where(source_type: 'db-instance')
-            .where(status: 'active')
-            .where(enabled: true)
-            .where { source_ids_list.include?(db_instance_identifier || 'all') }
+  entries = aws_rds_event_subscriptions.where(source_type: 'db-instance').where(status: 'active').where(enabled: true)
 
-  # aws_rds_event_subscriptions.where{ source_type.flatten.include?('all')}
+   #aws_rds_event_subscriptions.where{source_type.flatten.include?('all')}
   describe.one do
-    describe "DB-Instance Event Subscriptions for #{db_instance_identifier}" do
+    describe "DB-Instance Event Subscriptions" do
       subject { entries }
-      it { should exist }
+    it { should exist }
       its('event_categories_lists.flatten') { should include 'all' }
     end
-    describe "DB-Instance Event Subscriptions for #{db_instance_identifier}" do
+    describe "DB-Instance Event Subscriptions" do
       subject { entries }
       it { should exist }
       its('event_categories_lists.flatten') { should include 'deletion' }
@@ -60,6 +55,6 @@ control 'aws-rds-baseline-6' do
       its('event_categories_lists.flatten') { should include 'low storage' }
       its('event_categories_lists.flatten') { should include 'maintenance' }
       its('event_categories_lists.flatten') { should include 'notification' }
-    end
+    end 
   end
 end

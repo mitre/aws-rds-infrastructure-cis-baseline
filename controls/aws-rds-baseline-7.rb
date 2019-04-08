@@ -32,4 +32,13 @@ control 'aws-rds-baseline-7' do
   --sns- topic-arn <sns_topic_arn> --source-type db-security-group
   --event-categories <rds_events> --source-ids <events_source_ids> --enabled
   "
+
+  entries = aws_rds_event_subscriptions.where(source_type: 'db-security-group').where(status: 'active').where(enabled: true)
+
+  describe "DB Security Group Event Subscriptions" do
+    subject { entries }
+    its('event_categories_lists.flatten') { should_not be_empty}
+  end
 end
+ 
+

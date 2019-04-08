@@ -12,5 +12,13 @@ inspec_version: "~> 3.0"
 
 attributes:
   - name: db_instance_identifier
-    type: string
-    default: 'rdsmysqlinspec'
+    type: array
+    default: ['test', 'post']
+  - name: vpc_security_group_id
+    type: array
+    default: ['sg-04de43a5bab54586c']
+
+
+
+
+
