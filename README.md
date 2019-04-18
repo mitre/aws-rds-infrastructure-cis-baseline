@@ -3,7 +3,7 @@
 
 ALPHA WIP- AWS RDS infrastructure validation
 
-InSpec Profile to validate the secure configuration of aws-rds-infrastructure-cis-baseline, against CIS's Amazon Web Services Three-tier Web Architecture Benchmark V1.2.0
+InSpec Profile to validate the secure configuration of aws-rds-infrastructure-cis-baseline, against CIS's Amazon Web Services Three-tier Web Architecture Benchmark V1.0.0
 
 ## Getting Started  
 It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __<transport_protocol>__.
