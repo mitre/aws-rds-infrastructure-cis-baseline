@@ -1,4 +1,4 @@
-name: aws-rds-baseline
+name: aws-rds-infrastructure-cis-baseline
 title: Validates AWS RDS Infrastucture Layer
 maintainer: MITRE InSpec Team
 copyright: The MITRE Corporation, 2019
