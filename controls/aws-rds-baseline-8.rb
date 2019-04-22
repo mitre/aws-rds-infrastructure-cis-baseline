@@ -27,7 +27,7 @@ control 'aws-rds-baseline-8' do
   group associated with the App tier instances.'
   tag "cis_rid": '6.24'
   tag "cis_level": 1
-  tag "nist": ['IA-5(1)', 'Rev_4']
+  tag "nist": ['SC-7', 'Rev_4']
   tag "check": "Using the Amazon unified command line interface:
   Using the Amazon unified command line interface:
 

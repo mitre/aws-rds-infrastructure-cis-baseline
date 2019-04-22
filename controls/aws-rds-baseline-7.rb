@@ -11,7 +11,7 @@ control 'aws-rds-baseline-7' do
   instance.'
   tag "cis_rid": '4.4'
   tag "cis_level": 1
-  tag "nist": ['IA-5(1)', 'Rev_4']
+  tag "nist": ['IR-6', 'Rev_4']
   tag "check": "Using the Amazon unified CLI:
   * List all present event subscriptions and review the value of
   'db-security-group' associated with 'SourceType' element:

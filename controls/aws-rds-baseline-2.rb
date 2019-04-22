@@ -17,7 +17,7 @@ control 'aws-rds-baseline-2' do
   the data layer.'
   tag "cis_rid": '3.5'
   tag "cis_level": 1
-  tag "nist": ['IA-5(1)', 'Rev_4']
+  tag "nist": ['CM-6', 'Rev_4']
   tag "check": "Using the Amazon unified command line interface:
   * Check if your application DB instances are Multi-AZ enabled:
 

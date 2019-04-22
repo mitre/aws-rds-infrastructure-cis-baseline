@@ -17,7 +17,7 @@ control 'aws-rds-baseline-9' do
   should be removed.'
   tag "cis_rid": '6.25'
   tag "cis_level": 1
-  tag "nist": ['IA-5(1)', 'Rev_4']
+  tag "nist": ['SC-7', 'Rev_4']
   tag "check": "Using the Amazon unified command line interface:
   Using the Amazon unified command line interface:
 

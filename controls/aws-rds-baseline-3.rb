@@ -20,7 +20,7 @@ control 'aws-rds-baseline-3' do
   instance to ensure the database engine has all the latest patches applied.'
   tag "cis_rid": '3.6'
   tag "cis_level": 1
-  tag "nist": ['IA-5(1)', 'Rev_4']
+  tag "nist": ['CM-6', 'Rev_4']
   tag "check": "Using the Amazon unified command line interface:
   * Check if your application DB instances have Auto Minor Version Upgrade
   enabled:

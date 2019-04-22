@@ -24,7 +24,7 @@ control 'aws-rds-baseline-11' do
   instance.'
   tag "cis_rid": '6.34'
   tag "cis_level": 1
-  tag "nist": ['IA-5(1)', 'Rev_4']
+  tag "nist": ['SC-7', 'Rev_4']
   tag "check": "Using the Amazon unified command line interface:
   * Check if your application DB instances are configured to use the Data Tier
   Security Group:

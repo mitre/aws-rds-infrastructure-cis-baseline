@@ -20,7 +20,7 @@ control 'aws-rds-baseline-4' do
   Possible values are from 0 to 35 days.'
   tag "cis_rid": '3.8'
   tag "cis_level": 1
-  tag "nist": ['IA-5(1)', 'Rev_4']
+  tag "nist": ['CP-9', 'Rev_4']
   tag "check": "Using the Amazon unified command line interface:
   * Check if your application DB instances have a Backup Retention Period set (0
   = there is no backup retention in place, 7 = there are 7 daily backups

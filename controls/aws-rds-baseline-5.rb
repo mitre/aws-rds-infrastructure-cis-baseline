@@ -14,7 +14,7 @@ control 'aws-rds-baseline-5' do
   needs to be sent out to administrators, in order to be acted upon.'
   tag "cis_rid": '4.2'
   tag "cis_level": 1
-  tag "nist": ['IA-5(1)', 'Rev_4']
+  tag "nist": ['CM-6', 'Rev_4']
   tag "check": "Using the Amazon unified CLI:
   * List all RDS event subscriptions in order to capture the topic-arn:
 
