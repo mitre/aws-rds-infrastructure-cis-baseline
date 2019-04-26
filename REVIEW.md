@@ -4,7 +4,7 @@
 ||JSON output review (e.g., pass/fail on ,<br>hardened, not hardened, edge cases, etc.)|*|*|*|
 ||InSpec syntax checker|*|*|*|
 ||Local commands focused on target not the runner|*|*|*|
-|Quality checks|Alignment (including tagging) to original<br> standard (i.e. STIG, CIS Benchmark, NIST Tags)|Eugene Aronne|*|#2|
+|Quality checks|Alignment (including tagging) to original<br> standard (i.e. STIG, CIS Benchmark, NIST Tags)|Eugene Aronne|*|#2, #4|
 ||Descriptive output for findings details|*|*|*|
 ||Documentation quality (i.e. README)<br> novice level instructions including prerequisites|*|*|*|
 ||Consistency across other profile conventions |*|*|*|
