@@ -6,7 +6,7 @@
 ||Local commands focused on target not the runner|*|*|*|
 |Quality checks|Alignment (including tagging) to original<br> standard (i.e. STIG, CIS Benchmark, NIST Tags)|Eugene Aronne|*|#2, #4|
 ||Descriptive output for findings details|*|*|*|
-||Documentation quality (i.e. README)<br> novice level instructions including prerequisites|*|*|*|
+||Documentation quality (i.e. README)<br> novice level instructions including prerequisites|Eugene Aronne|*|#1|
 ||Consistency across other profile conventions |*|*|*|
 ||Spelling grammar|*|*|*|
 ||Removing debugging documentation and code|*|*|*|
