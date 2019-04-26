@@ -11,7 +11,7 @@ control 'aws-rds-baseline-1' do
 '
   tag "cis_rid": '1.4'
   tag "cis_level": 1
-  tag "nist": ['SC-28(1)', 'Rev_4']
+  tag "nist": ['SC-28', 'Rev_4']
   tag "check": "Using the Amazon unified CLI:
   * List all current RDS instances and review the encryption status of the
   DB instance:
