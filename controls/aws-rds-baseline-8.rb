@@ -1,7 +1,7 @@
 control 'aws-rds-baseline-8' do
-  title "Create the Data tier Security Group and ensure it allows inbound
+  title 'Create the Data tier Security Group and ensure it allows inbound
   connections from App tier Security Group for explicit ports.'
-  desc 'A security group acts as a virtual firewall for your instance to control
+  desc "A security group acts as a virtual firewall for your instance to control
   inbound and outbound traffic. When you launch an instance in the AWS Virtual
   Private Cloud (VPC), you can assign the instance to up to five security groups.
   Security groups act at the instance level, not the subnet level. Therefore,
