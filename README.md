@@ -1,53 +1,28 @@
-
 # aws-rds-infrastructure-cis-baseline
-
-ALPHA WIP- AWS RDS infrastructure validation
 
 InSpec Profile to validate the secure configuration of aws-rds-infrastructure-cis-baseline, against CIS's Amazon Web Services Three-tier Web Architecture Benchmark V1.0.0
 
 ## Getting Started  
 It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __<transport_protocol>__.
 
-    Note to be removed: Changed it from "component" to "the target" because we talk about "Ruby language components" below. 
-    
-__For the best security of the runner, always install on the runner the _latest version_ of InSpec and supporting Ruby language components.__ 
 
 Latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
-## Required Configurations (OPTIONAL SECTION)
-    NOTE: This is for situations where you need to provide attribute configurations, 
-    credentials, etc. to inspec (e.g., rsa archer instance, database, etc.) so 
-    it knows what to target. Displaying in a table (like tomcat) seems nice 
-    and provide instructions on where/how people can configure them.
+The following attributes must be configured in an attributes file for the profile to run correctly. More information about InSpec attributes can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
-    Also, provide links to how to create attribute files or tailor attributes 
-    in inspec.yml as well as templates. Projects should provide inspec.yml 
-    attributes configured to default values (i.e. controls should be written 
-    to use these attributes).
-The following attributes must be configured in order for the profile to run correctly. These attributes can be configured in inspec.yml file or in an attributes file. More information about InSpec attributes can be found [here](https://www.inspec.io/docs/reference/profiles/).
-    
-| Attribute      | Type                            | Required | Default        | Description               |
-| :---           | :---                            | :---     | :---           | :---                      |
-| attribute-name | array/numeric/string/etc.yes/no | yes/no   | default-value  | Description of attribute. |
-
-    NOTE: This section can also be used to set any required environment variables
-
-The following environment variablers must also be set in order for the profile to run correctly. 
-
-| Environment Variable |  Description              |
-| :---                 | :---                      | 
-| variable-name        | Description of attribute. |
-
-
-Windows
 ```
-$ setx VARIABLE_NAME=value
-```
+# Description of attribute
+attribute-name: default-value
 
-UNIX/Linux/MacOS
-```
-$ export VARIABLE_NAME=value
-```
+# Database instance identifier
+db_instance_identifier: []
+
+# VPC Security Group Id
+vpc_security_group_id: []]
+
+# Allowed IP address range
+allowed_ip_address_range: ''
+
 
 ## Running This Profile
 
@@ -57,7 +32,7 @@ Runs this profile over __<transport_protocol>__ to the host at IP address __host
 
     NOTE: Provide a usable example based on instructions above. 
     Example:
-    inspec exec https://github.com/mitre/aws-rds-infrastructure-cis-baseline/archive/master.tar.gz -t winrm://$winhostip --user 'Administrator --password=Pa55w0rd --reporter cli json:my-iis-site.json
+    inspec exec -t aws://https://github.com/mitre/aws-rds-infrastructure-cis-baseline/archive/master.tar.gz -t <transport-protocol>://<hostip> --user '<admin-account>' --password=<password> --reporter cli json:<filename>.json
 
 ## Viewing the JSON Results
 
@@ -66,7 +41,7 @@ The JSON results output file can be loaded into __[heimdall-lite](https://mitre.
 The JSON InSpec results file may also be loaded into a __full heimdall server__, allowing for additional functionality such as to store and compare multiple profile runs.
 
 ## Contributing and Getting Help
-To report a bug or feature request, please open an [issue](https://github.com/ejaronne/readmes/issues/new).
+To report a bug or feature request, please open an issue at https://github.com/mitre/ <project> /issues/new .
 
 For other help, please send a message to [inspec@mitre.org](mailto:inspec@mitre.org).
 
@@ -78,8 +53,6 @@ To contribute, please review the [contribution guidelines](https://github.com/mi
 
 ## Special Thanks 
 * The MITRE InSpec Team
-* person_2
- 
 
 ## License
 This is licensed under the Apache 2.0 license excepted as noted in [LICENSE.MD](https://github.com/mitre/project/blob/master/LICENSE.md). 
