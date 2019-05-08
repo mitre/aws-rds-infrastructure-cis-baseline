@@ -52,7 +52,7 @@ control 'aws-rds-baseline-1' do
 "
   attribute('db_instance_identifier').each do |identifier|
     describe aws_rds_instance(identifier.to_s) do
-      its('storage_encrypted') { should be_true }
+      its('storage_encrypted') { should be true }
     end
   end
 end

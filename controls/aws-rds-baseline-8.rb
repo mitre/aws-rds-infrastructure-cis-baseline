@@ -84,7 +84,7 @@ control 'aws-rds-baseline-8' do
       end
     else
       describe aws_rds_instance(identifier.to_s) do
-        its('publicly_accessible') { should_not be_true }
+        its('publicly_accessible') { should_not be true }
       end
     end
   end

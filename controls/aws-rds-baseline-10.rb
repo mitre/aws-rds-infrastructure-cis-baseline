@@ -42,7 +42,7 @@ control 'aws-rds-baseline-10' do
   "
   attribute('db_instance_identifier').each do |identifier|
     describe aws_rds_instance(identifier.to_s) do
-      its('publicly_accessible') { should_not be_true }
+      its('publicly_accessible') { should_not be true }
     end
   end
 end
