@@ -22,7 +22,7 @@ vpc_security_group_id: []]
 
 # Allowed IP address range
 allowed_ip_address_range: ''
-
+```
 
 ## Running This Profile
 
