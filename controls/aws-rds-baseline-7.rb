@@ -35,10 +35,8 @@ control 'aws-rds-baseline-7' do
 
   entries = aws_rds_event_subscriptions.where(source_type: 'db-security-group').where(status: 'active').where(enabled: true)
 
-  describe "DB Security Group Event Subscriptions" do
+  describe 'DB Security Group Event Subscriptions' do
     subject { entries }
-    its('event_categories_lists.flatten') { should_not be_empty}
+    its('event_categories_lists.flatten') { should_not be_empty }
   end
 end
- 
-

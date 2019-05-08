@@ -37,8 +37,8 @@ control 'aws-rds-baseline-3' do
 
   aws rds modify-db-instance --db-instance-identifier <your_db_instance>
   --auto-minor- version-upgrade"
-  attribute('db_instance_identifier').each do | identifier|
-    describe aws_rds_instance("#{identifier}") do
+  attribute('db_instance_identifier').each do |identifier|
+    describe aws_rds_instance(identifier.to_s) do
       its('auto_minor_version_upgrade') { should be true }
     end
   end

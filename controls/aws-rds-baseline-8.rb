@@ -62,11 +62,11 @@ control 'aws-rds-baseline-8' do
 
   "
 
-  attribute('db_instance_identifier').each do | identifier|
-    rds_vpc_security_groups = aws_rds_instance("#{identifier}").vpc_security_groups.where(status: 'active').vpc_security_group_ids
+  attribute('db_instance_identifier').each do |identifier|
+    rds_vpc_security_groups = aws_rds_instance(identifier.to_s).vpc_security_groups.where(status: 'active').vpc_security_group_ids
 
-    publicly_accessible = aws_rds_instance("#{identifier}").publicly_accessible
-  
+    publicly_accessible = aws_rds_instance(identifier.to_s).publicly_accessible
+
     if publicly_accessible
       rds_vpc_security_groups.each do |security_group|
         describe aws_security_group(id: security_group) do
@@ -83,9 +83,9 @@ control 'aws-rds-baseline-8' do
         end
       end
     else
-      describe aws_rds_instance("#{identifier}") do
+      describe aws_rds_instance(identifier.to_s) do
         its('publicly_accessible') { should_not be_true }
       end
     end
-  end 
+  end
 end

@@ -48,7 +48,7 @@ class AwsRdsInstance < Inspec.resource(1)
       raw_params: raw_params,
       allowed_params: [:db_instance_identifier],
       allowed_scalar_name: :db_instance_identifier,
-      allowed_scalar_type: String
+      allowed_scalar_type: String,
     )
     if validated_params.empty? || !validated_params.key?(:db_instance_identifier)
       raise ArgumentError, 'You must provide an id for the aws_rds_instance.'

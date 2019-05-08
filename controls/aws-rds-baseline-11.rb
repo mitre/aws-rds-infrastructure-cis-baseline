@@ -42,9 +42,9 @@ control 'aws-rds-baseline-11' do
   aws rds modify-db-instance --db-instance-identifier <your_db_instance>
   --vpc-security- group-ids <data_tier_security_group>
   "
-  attribute('db_instance_identifier').each do | identifier|
-    describe aws_rds_instance("#{identifier}") do
-      its('vpc_security_group_id') { should be_in attribute('vpc_security_group_id')}
+  attribute('db_instance_identifier').each do |identifier|
+    describe aws_rds_instance(identifier.to_s) do
+      its('vpc_security_group_id') { should be_in attribute('vpc_security_group_id') }
     end
   end
 end

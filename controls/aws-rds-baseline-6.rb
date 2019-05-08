@@ -36,17 +36,16 @@ control 'aws-rds-baseline-6' do
     <rds_events> -- source-ids <events_source_ids> --enabled
   "
 
-
   entries = aws_rds_event_subscriptions.where(source_type: 'db-instance').where(status: 'active').where(enabled: true)
 
-   #aws_rds_event_subscriptions.where{source_type.flatten.include?('all')}
+  # aws_rds_event_subscriptions.where{source_type.flatten.include?('all')}
   describe.one do
-    describe "DB-Instance Event Subscriptions" do
+    describe 'DB-Instance Event Subscriptions' do
       subject { entries }
-    it { should exist }
+      it { should exist }
       its('event_categories_lists.flatten') { should include 'all' }
     end
-    describe "DB-Instance Event Subscriptions" do
+    describe 'DB-Instance Event Subscriptions' do
       subject { entries }
       it { should exist }
       its('event_categories_lists.flatten') { should include 'deletion' }
@@ -55,6 +54,6 @@ control 'aws-rds-baseline-6' do
       its('event_categories_lists.flatten') { should include 'low storage' }
       its('event_categories_lists.flatten') { should include 'maintenance' }
       its('event_categories_lists.flatten') { should include 'notification' }
-    end 
+    end
   end
 end

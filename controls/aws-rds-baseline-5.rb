@@ -45,9 +45,9 @@ control 'aws-rds-baseline-5' do
   notification-endpoint <sns_subscription_endpoints>
   "
   describe aws_rds_event_subscriptions do
-    its('event_subscription_arns') { should_not be_empty}
+    its('event_subscription_arns') { should_not be_empty }
   end
   describe aws_rds_event_subscriptions do
-    its('source_types') { should_not be_empty}
+    its('source_types') { should_not be_empty }
   end
-end 
+end
