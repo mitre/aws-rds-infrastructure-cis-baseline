@@ -70,16 +70,16 @@ control 'aws-rds-baseline-8' do
     if publicly_accessible
       rds_vpc_security_groups.each do |security_group|
         describe aws_security_group(id: security_group) do
-          it { should allow_in(port: 3306, ipv4_range: '0.0.0.0/0') }
+          it { should allow_in(port: 3306, ipv4_range: attribute('allowed_ip_address_range')) }
         end
         describe aws_security_group(id: security_group) do
-          it { should allow_in(port: 1433, ipv4_range: '0.0.0.0/0') }
+          it { should allow_in(port: 1433, ipv4_range: attribute('allowed_ip_address_range')) }
         end
         describe aws_security_group(id: security_group) do
-          it { should allow_in(port: 1521, ipv4_range: '0.0.0.0/0') }
+          it { should allow_in(port: 1521, ipv4_range: attribute('allowed_ip_address_range')) }
         end
         describe aws_security_group(id: security_group) do
-          it { should allow_in(port: 5432, ipv4_range: '0.0.0.0/0') }
+          it { should allow_in(port: 5432, ipv4_range: attribute('allowed_ip_address_range')) }
         end
       end
     else
