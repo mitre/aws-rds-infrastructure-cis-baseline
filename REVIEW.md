@@ -2,14 +2,14 @@
 |----------------|-----------------------------------------------------------------------------------|-----|-----------------|-----------|
 |Logical checks| Proper profile directory structure	[1]						|Rony Xavier|05/06/2019|*|
 ||JSON output review (e.g., pass/fail on ,<br>hardened, not hardened, edge cases, etc.)|Rony Xavier|05/06/2019|*|
-||InSpec syntax checker|Rony Xavier|*|#10 #11|
+||InSpec syntax checker|Rony Xavier|05/08/2019|#10 #11|
 ||Local commands focused on target not the runner [2]|Rony Xavier|05/06/2019|*|
-|Quality checks|Alignment (including tagging) to original<br> standard (i.e. STIG, CIS Benchmark, NIST Tags)|Eugene Aronne|*|#2, #4|
-||Control robustness (can the control be improved to make it less brittle - not necessarily a blocker on initial releases)|Rony Xavier|*|#12 #7 #6 #5|
+|Quality checks|Alignment (including tagging) to original<br> standard (i.e. STIG, CIS Benchmark, NIST Tags)|Eugene Aronne|05/08/2019|#2, #4|
+||Control robustness (can the control be improved to make it less brittle - not necessarily a blocker on initial releases)|Rony Xavier|05/08/2019|#12 #7 #6 #5|
 ||Descriptive output for findings details (review JSON for findings information that may be confusing to SCA like NilCLass, etc.)|Rony Xavier|05/06/2019|*|
-||Documentation quality (i.e. README)<br> novice level instructions including prerequisites|Eugene Aronne|*|#1
+||Documentation quality (i.e. README)<br> novice level instructions including prerequisites|Eugene Aronne|05/08/2019|#1
 ||Consistency across other profile conventions |Rony Xavier|05/06/2019|*|
-||Spelling, grammar,linting (e.g., rubocop, etc.)|Rony Xavier|*|#8|
+||Spelling, grammar,linting (e.g., rubocop, etc.)|Rony Xavier|05/08/2019|#8|
 ||Removing debugging documentation and code|Rony Xavier|05/06/2019|*|
 | Error handling |“Profile Error” containment: “null” responses <br>should only happen if InSpec is run with incorrect privileges (e.g., code fails to reach a describe statement for every control. inspec check can do this. It will say no defined tests)|Rony Xavier|05/06/2019|*|
 ||Slowing the target (e.g. filling up disk, CPU spikes)|Rony Xavier|05/06/2019|*|
