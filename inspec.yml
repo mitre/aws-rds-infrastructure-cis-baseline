@@ -5,7 +5,7 @@ copyright: The MITRE Corporation, 2019
 copyright_email: inspec@mitre.org
 license: Apache-2.0
 summary: Validates AWS RDS Infrastucture Layer
-version: 0.1.0
+version: 0.2.0
 
 supports:
   - platform: aws
