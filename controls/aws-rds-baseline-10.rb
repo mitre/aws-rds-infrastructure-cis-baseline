@@ -40,7 +40,7 @@ control 'aws-rds-baseline-10' do
   aws rds modify-db-instance --db-instance-identifier <your_db_instance>
   --no-publicly- accessible
   "
-  attribute('db_instance_identifier').each do |identifier|
+  input('db_instance_identifier').each do |identifier|
     describe aws_rds_instance(identifier.to_s) do
       its('publicly_accessible') { should_not be true }
     end

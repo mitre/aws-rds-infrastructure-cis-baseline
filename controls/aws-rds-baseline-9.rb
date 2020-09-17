@@ -39,7 +39,7 @@ control 'aws-rds-baseline-9' do
   aws ec2 revoke-security-group-ingress --group-id <data_tier_security_group>
   --protocol tcp/udp --port <specific_port> --cidr 0.0.0.0/0
   "
-  attribute('db_instance_identifier').each do |identifier|
+  input('db_instance_identifier').each do |identifier|
     rds_vpc_security_groups = aws_rds_instance(identifier.to_s).vpc_security_groups.where(status: 'active').vpc_security_group_ids
     rds_vpc_security_groups.each do |security_group|
       describe aws_security_group(id: security_group) do

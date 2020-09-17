@@ -6,17 +6,17 @@ copyright_email: inspec@mitre.org
 license: Apache-2.0
 summary: Validates AWS RDS Infrastucture Layer
 version: 0.2.0
-
+inspec_version: ">= 4.0"
 supports:
   - platform: aws
 
-attributes:
+inputs:
   - name: db_instance_identifier
-    type: array
-    default: ['test']
+    type: Array
+    value: ['database-1']
   - name: vpc_security_group_id
-    type: array
-    default: ['sg-043d996b']
+    type: Array
+    value: ['sg-0000000']
   - name: allowed_ip_address_range
-    type: string
-    default: '0.0.0.0/0'
+    type: String
+    value: '0.0.0.0/0'

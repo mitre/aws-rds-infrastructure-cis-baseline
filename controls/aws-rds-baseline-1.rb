@@ -50,7 +50,7 @@ control 'aws-rds-baseline-1' do
   <your_db_instance> --db-snapshot-identifier <encrypted_db_snapshot>
 
 "
-  attribute('db_instance_identifier').each do |identifier|
+  input('db_instance_identifier').each do |identifier|
     describe aws_rds_instance(identifier.to_s) do
       its('storage_encrypted') { should be true }
     end
