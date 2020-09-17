@@ -1,4 +1,8 @@
 # author: Mohamed El-Sharkawi, Rony Xavier
+
+require "resource_support/aws/aws_singular_resource_mixin"
+require "resource_support/aws/aws_backend_base"
+
 class AwsRdsInstance < Inspec.resource(1)
   name 'aws_rds_instance'
   desc 'Verifies settings for an rds instance'
