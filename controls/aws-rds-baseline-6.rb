@@ -56,16 +56,18 @@ control 'aws-rds-baseline-6' do
       its('event_categories_lists.flatten') { should include 'notification' }
     end
   end
+
+  db_instance_identifier = input('db_instance_identifier')
+
   describe.one do
     describe 'DB-Instance Event Subscriptions' do
       subject { entries }
       it { should exist }
       its('source_ids_lists.flatten') { should include 'all' }
     end
-    describe 'DB-Instance Event Subscriptions' do
-      subject { entries }
-      it { should exist }
-      its('source_ids_lists.flatten') { should be_in attribute('db_instance_identifier') }
+    describe 'All DB-Instances should be in Event Subscription source_ids_lists' do
+      subject { db_instance_identifier }
+      it { should be_in entries.source_ids_lists.flatten }
     end
   end
 end
