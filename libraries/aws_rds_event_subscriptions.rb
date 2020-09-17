@@ -1,4 +1,8 @@
 # author: Rony Xavier
+
+require "resource_support/aws/aws_plural_resource_mixin"
+require "resource_support/aws/aws_backend_base"
+
 class AwsRdsEventSubscriptions < Inspec.resource(1)
   name 'aws_rds_event_subscriptions'
   desc 'Queries AWS RDS Event Subscriptions'
@@ -9,7 +13,7 @@ class AwsRdsEventSubscriptions < Inspec.resource(1)
   "
   supports platform: 'aws'
 
-  include AwsSingularResourceMixin
+  include AwsPluralResourceMixin
 
   attr_reader :table
 
