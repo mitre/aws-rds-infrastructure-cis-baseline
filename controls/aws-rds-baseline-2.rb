@@ -30,7 +30,7 @@ control 'aws-rds-baseline-2' do
   * Modify each no-multi-az DB instance, and make it Multi-AZ enabled:
   aws rds modify-db-instance --db-instance-identifier <your_db_instance>
   --multi-az"
-  attribute('db_instance_identifier').each do |identifier|
+  input('db_instance_identifier').each do |identifier|
     describe aws_rds_instance(identifier.to_s) do
       its('multi_az') { should be true }
     end
