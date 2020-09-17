@@ -11,8 +11,8 @@ Latest versions and installation options are available at the [InSpec](http://in
 The following attributes must be configured in an attributes file for the profile to run correctly. More information about InSpec attributes can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
 ```
-# Description of attribute
-attribute-name: default-value
+# Description of input value
+input-name: default-value
 
 # Database instance identifier
 db_instance_identifier: []
@@ -24,14 +24,30 @@ vpc_security_group_id: []]
 allowed_ip_address_range: ''
 ```
 
-## Running This Profile
+## Usage
 
-    inspec exec -t aws://https://github.com/mitre/aws-rds-infrastructure-cis-baseline/archive/master.tar.gz -t <transport-protocol>://<hostip> --user '<admin-account>' --password=<password> --reporter cli json:<filename>.json
+InSpec makes it easy to run your tests wherever you need. More options listed here: [InSpec cli](http://inspec.io/docs/reference/cli/)
 
-Runs this profile over __<transport_protocol>__ to the host at IP address __hostip__ as a privileged user account (i.e., an account with administrative privileges), reporting results to both the command line interface (cli) and to a machine-readable JSON file. 
+```
+# Clone Inspec Profile
+$ git clone https://github.com/mitre/aws-rds-infrastructure-cis-baseline
 
-    inspec exec -t aws://https://github.com/mitre/aws-rds-infrastructure-cis-baseline/archive/master.tar.gz -t <transport-protocol>://<hostip> --user '<admin-account>' --password=<password> --reporter cli json:<filename>.json
+# Set required ENV variables
+$ export AWS_ACCESS_KEY_ID=key-id
+$ export AWS_SECRET_ACCESS_KEY=access-key
+$ export AWS_SESSION_TOKEN=session_token
+$ export AWS_REGION=us-west-1
 
+# To run profile locally and directly from Github
+$ inspec exec /path/to/profile -t aws:// 
+
+# To run profile locally and directly from Github with cli & json output 
+$ inspec exec /path/to/profile -t aws:// --reporter cli json:rds-results.json
+
+# To run profile locally and directly from Github with cli & json output, in a specific region with a specific AWS profile
+$ inspec exec /path/to/profile -t aws://us-east-1/<mycreds-profile> --reporter cli json:rds-results.json
+
+```
 ## Viewing the JSON Results
 
 The JSON results output file can be loaded into __[heimdall-lite](https://mitre.github.io/heimdall-lite/)__ for a user-interactive, graphical view of the InSpec results. 
