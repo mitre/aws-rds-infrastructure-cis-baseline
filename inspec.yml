@@ -2,21 +2,19 @@ name: aws-rds-infrastructure-cis-baseline
 title: Validates AWS RDS Infrastucture Layer
 maintainer: MITRE InSpec Team
 copyright: The MITRE Corporation, 2019
-copyright_email: inspec@mitre.org
+copyright_email: saf@groups.mitre.org
 license: Apache-2.0
 summary: Validates AWS RDS Infrastucture Layer
-version: 0.2.0
+version: 0.2.1
 inspec_version: ">= 4.0"
-supports:
-  - platform: aws
 
 inputs:
   - name: db_instance_identifier
     type: Array
-    value: ['database-1']
+    value: ['']
   - name: vpc_security_group_id
     type: Array
-    value: ['sg-0000000']
+    value: ['']
   - name: allowed_ip_address_range
     type: String
-    value: '0.0.0.0/0'
+    value: ''
