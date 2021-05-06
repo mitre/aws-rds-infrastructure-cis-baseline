@@ -3,7 +3,7 @@
 InSpec Profile to validate the secure configuration of aws-rds-infrastructure-cis-baseline, against [CIS'](https://www.cisecurity.org/cis-benchmarks/) Amazon Web Services Three-tier Web Architecture Benchmark V1.0.0
 
 ## Getting Started  
-It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __ssh__.
+It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __AWS CLI__.
 
 The latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
